@@ -31,4 +31,4 @@ foreach ($commitid in $commits) {
 $pattern = "*.ps1" #could be a /path*.ext
 #get unique and filtered files based on a pattern
 $filteredFiles = $files | Select-Object -unique | where-object { $_ -like $pattern } 
-echo $filteredFiles
+Write-Output $filteredFiles
