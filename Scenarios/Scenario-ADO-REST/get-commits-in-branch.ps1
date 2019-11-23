@@ -1,12 +1,9 @@
-$PAT = "mypat" # Personal Access Token - part of Azure DevOps
+$PAT = "my-pat" # Personal Access Token - part of Azure DevOps
 $AzureDevOpsOrg = "https://dev.azure.com/my-org"
 $Project = "my-project"
 $RepositoryId = "my-repo"
-$branch = "mybranch"
-#get the current date
-$toDate = $(Get-Date -Format "MM/dd/yyyy HH:mm:ss tt") -replace " ","%20"
-#look some time in the past.
-$fromDate = $(get-date).AddDays(-1).ToString("MM/dd/yyyy HH:mm:ss tt") -replace " ","%20"
+$branch = "my-branch"
+$pattern = "*.ps1" #could be a /path*.ext
 
 # Base64-encodes the Personal Access Token (PAT) appropriately
 # This is required to pass PAT through HTTP header
@@ -18,8 +15,7 @@ $files = @()
 #GET https://dev.azure.com/fabrikam/_apis/git/repositories/{repositoryId}/commits?searchCriteria.itemVersion.version=master&api-version=5.1
 #This could use searchCriteria.fromDate to have additional filtering
 #https://docs.microsoft.com/en-us/rest/api/azure/devops/git/commits/get%20commits?view=azure-devops-rest-5.1#on-a-branch
-#https://docs.microsoft.com/en-us/rest/api/azure/devops/git/commits/get%20commits?view=azure-devops-rest-5.1#in-a-date-range
-[uri] $script:GetCommitsURI = "$AzureDevOpsOrg/$Project/_apis/git/repositories/$RepositoryId/commits?searchCriteria.itemVersion.version=$branch&searchCriteria.toDate=$toDate&searchCriteria.fromDate=$fromDate"
+[uri] $script:GetCommitsURI = "$AzureDevOpsOrg/$Project/_apis/git/repositories/$RepositoryId/commits?searchCriteria.itemVersion.version=$branch&gitLogHistoryMode=fullHistory"
 $GetCommitsResponse = Invoke-RestMethod -Uri $GetCommitsURI -Method GET -ContentType "application/json" -Headers @{Authorization = ("Basic {0}" -f $Base64AuthInfo) } 
 $commits = ($GetCommitsResponse.value).commitid
 
@@ -32,7 +28,7 @@ foreach ($commitid in $commits) {
     }
 }
 
-$pattern = "*.ps1" #could be a /path*.ext
+
 #get unique and filtered files based on a pattern
 $filteredFiles = $files | Select-Object -unique | where-object { $_ -like $pattern } 
 Write-Output $filteredFiles
