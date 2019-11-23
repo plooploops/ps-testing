@@ -47,7 +47,7 @@ In the sample , we're using the following:
 | Name | Description |
 | ----------------------------------------- |------------------- |
 | $PAT            | Personal Access Token - the token should have code-read rights to the specified Azure DevOps Organization.  Also this should have already expired!
-| $AzureDevOpsOrg      | We're using this to form our ADO REST request.  "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
+| $AzureDevOpsOrg      | We're using this to form our ADO REST request, for example, "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
 | $Project | Name of the project.  Be sure to replace spaces with %20. |
 | $RepositoryID       | Name of the Azure DevOps Repository.  Be sure to replace spaces with '%20' |
 | $branch | Name of the branch in Azure DevOps Repository. Be sure to replace spaces with '%20' | keyvaultobjectnames |
@@ -68,7 +68,7 @@ In the sample , we're using the following:
 | Name | Description |
 | ----------------------------------------- |------------------- |
 | $PAT            | Personal Access Token - the token should have code-read rights to the specified Azure DevOps Organization.  Also this should have already expired!
-| $AzureDevOpsOrg      | We're using this to form our ADO REST request.  "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
+| $AzureDevOpsOrg      | We're using this to form our ADO REST request, for example, "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
 | $Project | Name of the project.  Be sure to replace spaces with %20. |
 | $RepositoryID       | Name of the Azure DevOps Repository.  Be sure to replace spaces with '%20' |
 | $branch | Name of the branch in Azure DevOps Repository. Be sure to replace spaces with '%20' | keyvaultobjectnames |
@@ -87,7 +87,7 @@ In the sample , we're using the following:
 | Name | Description |
 | ----------------------------------------- |------------------- |
 | $PAT            | Personal Access Token - the token should have code-read rights to the specified Azure DevOps Organization.  Also this should have already expired!
-| $AzureDevOpsOrg      | We're using this to form our ADO REST request.  "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
+| $AzureDevOpsOrg      | We're using this to form our ADO REST request, for example, "https://dev.azure.com/my-org".  Be sure to encode spaces with '%20'
 | $Project | Name of the project.  Be sure to replace spaces with %20. |
 | $RepositoryID       | Name of the Azure DevOps Repository.  Be sure to replace spaces with '%20' |
 | $branch | Name of the branch in Azure DevOps Repository. Be sure to replace spaces with '%20' | keyvaultobjectnames |
