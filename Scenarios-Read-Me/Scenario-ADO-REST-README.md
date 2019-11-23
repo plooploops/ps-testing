@@ -74,7 +74,7 @@ In the sample , we're using the following:
 | $branch | Name of the branch in Azure DevOps Repository. Be sure to replace spaces with '%20' | keyvaultobjectnames |
 | $pattern       | This will be the pattern to match for the path on changed items in a commit.  We can use "*.ps1" for example, or "/folder*.ps1"|
 
-#### Get Commits In a Branch
+#### Get Commits In a Pull Request
 
 The goal for this is to get the changes in the commits associated with a **pull request** in a given branch.
 
